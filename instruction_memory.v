@@ -1,6 +1,6 @@
 // Submodule: Instruction Memory
 
-`timescale 1ns / 1ns
+`timescale 1 ps / 100 fs
 module InstructionMem(instruction, address);
 
 input [31:0] address;

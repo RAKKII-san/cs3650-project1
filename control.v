@@ -1,5 +1,6 @@
-`timescale 1 ns / 1 ns
 // Submodule: Control Unit
+`timescale 1 ns / 1 ns
+
 module Control (
     RegDst,
     ALUSrc,
