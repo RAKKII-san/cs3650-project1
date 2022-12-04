@@ -1,4 +1,7 @@
 // Submodule: Register file 
+// Note: some of the comments were already written by fpga4student.com
+// and additional comments are added to write more notes to understand
+// the MIPS processor more
 `timescale 1 ps / 100 fs
 module regfile(
 ReadData1,
@@ -18,7 +21,7 @@ output [31:0] ReadData1, ReadData2;
 wire [31:0] WriteEn;
 wire [31:0] RegArray [0:31];
 integer i;
-     //----Decoder Block
+// Decoder Block
  decoder Decoder1( WriteEn,RegWrite,WriteRegister);
  register reg0 (RegArray[0],32'b0,1'b1,1'b0, clk);
  register reg1 (RegArray[1],WriteData,WriteEn[1],reset,clk);
@@ -67,11 +70,11 @@ integer i;
        );  
 endmodule
 
-// D flip-flip
+// D flip-flop
 module D_FF (q, d, reset, clk);
 output q;
 input d, reset, clk;
-reg q; // Indicate that q is stateholding
+reg q; // q = stateholding indicator
  
 always @(posedge clk or posedge reset)
 if (reset)
@@ -79,13 +82,15 @@ q = 0; // On reset, set to 0
 else
 q = d; // Otherwise out = d 
 endmodule
+
+// This shows how D flip-flops are used in registers.
 // 1 bit register 
-module RegBit(BitOut, BitData, WriteEn,reset, clk);
+module RegBit(BitOut, BitData, WriteEn, reset, clk);
 output BitOut; // 1 bit of register
 input BitData, WriteEn; 
 input reset,clk;
 wire d,f1, f2; // input of D Flip-Flop
-wire reset;
+wire reset; 
 //assign reset=0;
 and #(50) U1(f1, BitOut, (~WriteEn));
 and #(50) U2(f2, BitData, WriteEn);
@@ -93,7 +98,7 @@ or  #(50) U3(d, f1, f2);
 D_FF DFF0(BitOut, d, reset, clk);
 endmodule
 
-//32 bit register 
+// 32 bit register 
 module register(RegOut,RegIn,WriteEn,reset,clk); 
 output [31:0] RegOut;
 input [31:0] RegIn;

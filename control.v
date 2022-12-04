@@ -1,5 +1,5 @@
 // Submodule: Control Unit
-`timescale 1 ns / 1 ns
+`timescale 1 ps / 100 fs
 
 module Control (
     RegDst,
@@ -94,7 +94,7 @@ always @(*)
         Jump = 1'b1;
         SignZero= 1'b0;
         end
-    default : begin 
+    default : begin  // this shouldn't happen
         RegDst = 1'b0;
         ALUSrc = 1'b0;
         MemtoReg= 1'b0;
