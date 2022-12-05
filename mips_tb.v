@@ -13,6 +13,8 @@ always #(ClockDelay/2) clk = ~clk;
 
 initial 
 begin
+  $dumpfile("mips_tb.vcd");
+  $dumpvars(0, myMIPS);
    reset = 1;
   #(ClockDelay/4);
   reset = 0;
