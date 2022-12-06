@@ -13,10 +13,10 @@ single-cycle and 5-stage pipelining is done in Verilog.
 A txt file is included to test out the Verilog processor. This was also provided by
 fpga4student.com. Screenshots from local testing are provided by us. 
 
-Throughout this project, we were able to learn how the verilog code interacts with 
+Throughout this project, we learned how the verilog code interacts with 
 the hardware in order to create the MIPS commands we know about. Seeing the direct 
-datapath gave a good visualization of what goes on internally, and we were able to 
-experience how it was to code in language directly above hardware.
+datapath gave a good visualization of what goes on internally, and we  
+experienced how it was to code in language directly above hardware.
 
 Some miscellaneous things we also learned:
 * Code in Verilog doesn't necessarily execution instructions from top to bottom,
