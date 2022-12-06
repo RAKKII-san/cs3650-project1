@@ -6,7 +6,6 @@ parameter ClockDelay = 5000;
 
 reg clk,reset;
 
-
 MIPSpipeline myMIPS(clk, reset);
 initial clk = 0;
 always #(ClockDelay/2) clk = ~clk;
@@ -14,7 +13,7 @@ always #(ClockDelay/2) clk = ~clk;
 initial 
 begin
   $dumpfile("mips_tb.vcd");
-  $dumpvars(0, myMIPS);
+  $dumpvars(0, MIPSStimulus);
    reset = 1;
   #(ClockDelay/4);
   reset = 0;
